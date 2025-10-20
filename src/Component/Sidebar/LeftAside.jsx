@@ -1,14 +1,20 @@
 import React, { Suspense } from 'react';
 import Categories from '../Categories/Categories';
+import CircularText from '../Loading/CircularText ';
 
 
 const LeftAside = () => {
     return (
         <div>
-            <Suspense fallback={<span className="loading loading-ring loading-xl"></span>}>
+            <Suspense fallback={<CircularText
+                text="REACT*BITS*COMPONENTS*"
+                onHover="speedUp"
+                spinDuration={20}
+                className="custom-class"
+            />}>
                 <Categories></Categories>
             </Suspense>
-           
+
         </div>
     );
 };
