@@ -3,6 +3,10 @@ import Root from "../Root/Root";
 import { Children } from "react";
 import Home from "../../Component/Pages/Home";
 import CategoryNews from "../../Component/CategoryNews/CategoryNews";
+import ErrorPage from "../../Component/ErrorElement/ErrorPage";
+import Login from "../../Component/Pages/Login";
+import Register from "../../Component/Pages/Register";
+import Authlayout from "../Authlayout/Authlayout";
 
 
 const router = createBrowserRouter([
@@ -24,7 +28,17 @@ const router = createBrowserRouter([
   },
   {
     path:'/auth',
-    element: <h1>Authentication</h1>
+    Component: Authlayout,
+    children:[
+      {
+        path:"/auth/login",
+        Component: Login
+      },
+      {
+        path:"/auth/register",
+        Component: Register
+      },
+    ]
   },
   {
     path:'news',
@@ -32,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/*',
-    element:<h1>error 404</h1>
+    Component: ErrorPage
 
   }
 ]);

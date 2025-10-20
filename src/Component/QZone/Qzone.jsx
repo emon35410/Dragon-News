@@ -2,7 +2,7 @@ import React from 'react';
 import swimming from "../../assets/swimming.png"
 import playground from "../../assets/playground.png"
 import clas from "../../assets/class.png"
-import bg from "../../assets/bg.png"
+import bg from "../../assets/Interstellar 4K Cinematic Space and Black hole  Wallpaper.jfif"
 
 const Qzone = () => {
     return (
@@ -16,7 +16,7 @@ const Qzone = () => {
                 </div>
             </div>
             <div className='ml-4'>
-                <img src={bg} alt="" />
+                <img className='rounded-2xl' src={bg} alt="" />
             </div>
         </>
     );
