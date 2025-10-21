@@ -2,9 +2,10 @@ import React from 'react';
 import { FaShareAlt, FaBookmark, FaStar } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
 import { CiBookmark } from 'react-icons/ci';
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
-  const { title, author, details, thumbnail_url, rating, total_view } = news;
+  const {id, title, author, details, thumbnail_url, rating, total_view } = news;
 
   const formattedDate = new Date(author.published_date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -28,7 +29,7 @@ const NewsCard = ({ news }) => {
           </div>
         </div>
         <div className="flex items-center gap-2 text-gray-500">
-            <CiBookmark className="cursor-pointer hover:text-[text-bg-gray-500" />
+          <CiBookmark className="cursor-pointer hover:text-[text-bg-gray-500" />
           <FaShareAlt className="cursor-pointer hover:text-primary" />
         </div>
       </div>
@@ -49,7 +50,7 @@ const NewsCard = ({ news }) => {
         </h2>
         <p className="text-sm text-gray-600">
           {details.length > 180 ? details.slice(0, 180) + '...' : details}
-          <span className="text-primary font-semibold cursor-pointer ml-1">Read More</span>
+          <Link to= {`/news-details/${id}`} className="text-primary font-semibold cursor-pointer ml-1">Read More</Link>
         </p>
       </div>
 

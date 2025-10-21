@@ -7,7 +7,7 @@ const LeftAside = () => {
     return (
         <div>
             <Suspense fallback={<CircularText
-                text="REACT*BITS*COMPONENTS*"
+                text="INTERSTELLER"
                 onHover="speedUp"
                 spinDuration={20}
                 className="custom-class"

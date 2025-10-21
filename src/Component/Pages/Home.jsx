@@ -41,7 +41,7 @@ const Home = () => {
                         <img
                             src={news.img}
                             alt={news.title}
-                            className="w-full h-64 object-cover"
+                            className="md:w-full w-[350] h-64 md:object-cover "
                         />
                         <div className="p-4">
                             <h3 className="font-semibold text-lg">{news.title}</h3>

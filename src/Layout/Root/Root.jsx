@@ -19,7 +19,7 @@ const Root = () => {
                 </nav>
             </header>
             
-            <main className='md:w-11/12 md:mx-auto grid grid-cols-12'>
+            <main className='md:w-11/12 md:mx-auto mx-2 grid grid-cols-12'>
                 <aside className='col-span-3 sticky top-0 h-fit'>
                     <LeftAside></LeftAside>
                 </aside>
