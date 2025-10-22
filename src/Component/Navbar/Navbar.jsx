@@ -24,7 +24,7 @@ const Navbar = () => {
             <div>{user && user.email}</div>
             <div>{links}</div>
             <div className='flex items-center  gap-2'>
-                <img width={41} height={41} src={userimg} alt="" />
+                <img className='w-11 rounded-full' src={`${user? user.photoURL:userimg}`} alt="" />
                 {
                     user ? <button className='bg-[#403F3F] hover:cursor-pointer text-white px-5 py-1' onClick={handleLogout}>Log Out</button> : <Link to="/auth/login" className='bg-[#403F3F] hover:cursor-pointer text-white px-5 py-1'>Login</Link>
                 }

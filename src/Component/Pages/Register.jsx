@@ -1,10 +1,11 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Register = () => {
-   const {createUser,setUser} = use(AuthContext)
+    const { createUser, setUser, updateUser } = use(AuthContext)
+    const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -12,11 +13,21 @@ const Register = () => {
         const photo = event.target.photo.value;
         const password = event.target.password.value;
         console.log({ name, email, photo, password })
-        createUser(email,password).then(result => {
-                const user =  result.user;
-                setUser(user);
-                
-            })
+        createUser(email, password).then(result => {
+            const user = result.user;
+            updateUser({ displayName: name, photoURL: photo })
+                .then(() => {
+                    setUser({...user,displayName: name, photoURL: photo})
+                    console.log(user)
+                    navigate("/")
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setUser(user)
+                });
+            setUser(user);
+
+        })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -42,7 +53,7 @@ const Register = () => {
                         {/* Password */}
                         <label className="font-semibold">Password</label>
                         <input name='password' required type="password" className="input" placeholder="Password" />
-                        <button type='submit' className="btn btn-neutral mt-4">Login</button>
+                        <button type='submit' className="btn btn-neutral mt-4">Register</button>
                         <p className='text-[#706F6F] text-center mt-2 font-semibold'>Already Have an Account ?<Link to="/auth/login" className='text-[#F75B5F]'>Login</Link></p>
                     </fieldset>
                 </form>
